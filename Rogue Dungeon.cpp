@@ -1,12 +1,5 @@
-﻿// Rogue Dungeon.cpp : Defines the entry point for the application.
-//
-
-#include "Rogue Dungeon.h"
+﻿#include "Rogue Dungeon.h"
+#include <iostream>
 
 using namespace std;
 
-int main()
-{
-	cout << "Hello CMake." << endl;
-	return 0;
-}
