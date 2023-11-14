@@ -12,7 +12,7 @@ endif()
 project ("Rogue Dungeon")
 
 # Add source to this project's executable.
-add_executable (CMakeTarget "Rogue Dungeon.cpp" "Rogue Dungeon.h" "Paladin.h" "Arbalist.h" "Herbalist.h")
+add_executable (CMakeTarget "Rogue Dungeon.cpp" "Rogue Dungeon.h" "CharacterSheet.h" "Enemies.h" "Characters/Paladin.h" "Characters/Arbalist.h" "Characters/Herbalist.h" "Weapons.h" "Characters/Archer" "Characters/Blacksmith" "Characters/Demon" "Characters/Hound" "Characters/Knight" "Characters/Stargazer")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET CMakeTarget PROPERTY CXX_STANDARD 20)
