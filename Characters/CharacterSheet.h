@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class CharacterSheet : public Unit {
+class CharacterSheet : public Char {
 public:
 	CharacterSheet();
 	CharacterSheet(string name, int max_health, int str, int intel, int spd, int m_def, int p_def, int per);

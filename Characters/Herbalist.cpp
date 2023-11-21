@@ -2,14 +2,14 @@
 
 Herbalist::Herbalist() {
 	setClassName("Herbalist");
-	useWeapon.push_back(Damage Potion);
-	useWeapon.push_back(Healing Potion);
+	useWeapon.push_back(DamagePotion);
+	useWeapon.push_back(HealingPotion);
 }
 
 Herbalist::Herbalist(string name, int max_health, int str, int intel, int spd, int m_def, int p_def, int per) {
 	setClassName("Herbalist");
-	useWeapon.push_back(Damage Potion);
-	useWeapon.push_back(Healing Potion);
+	useWeapon.push_back(DamagePotion);
+	useWeapon.push_back(HealingPotion);
 	setName(name);
 	setStat(MAX_HP, max_health);
 	setStat(STR, str);

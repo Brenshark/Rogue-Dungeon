@@ -2,12 +2,12 @@
 
 Hound::Hound() {
 	setClassName("Hound");
-	useWeapon.push_back(bite);
+	useWeapon.push_back(Bite);
 }
 
 Hound::Hound(string name, int max_health, int str, int intel, int spd, int m_def, int p_def, int per) {
 	setClassName("Hound");
-	useWeapon.push_back(bite);
+	useWeapon.push_back(Bite);
 	setName(name);
 	setStat(MAX_HP, max_health);
 	setStat(STR, str);
