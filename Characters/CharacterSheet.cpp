@@ -11,7 +11,7 @@ CharacterSheet::CharacterSheet(string name, int max_health, int str, int intel, 
 	setStat(INT,intel);
 	setStat(SPD,spd);
 	setStat(MAG_DEF,m_def);
-	setStat(PHY,p_def);
+	setStat(PHY_DEF,p_def);
 	setStat(PER,per);
 }
 CharacterSheet::~CharacterSheet() {}
@@ -21,4 +21,7 @@ void CharacterSheet::setClassName(string name) {
 }
 
 void CharacterSheet::LevelUp() {
+	if (exp == max_exp) {
+		level++;
+	}
 }
