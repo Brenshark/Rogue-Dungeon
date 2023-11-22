@@ -2,7 +2,7 @@
 
 Weapon::Weapon() {}
 
-Weapon::Weapon(const char* name, int wgt, int mt, int acc, int crit, int dur, int weapon, int magic, int range) {
+Weapon::Weapon(const char* name, int wgt, int mt, int acc, int crit, int dur, int range, int weapon, int magic) {
 	setWeaponName(name);
 	setWStat(WGT, wgt);
 	setWStat(MT, mt);

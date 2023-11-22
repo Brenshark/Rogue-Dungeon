@@ -1,7 +1,7 @@
 #pragma once
-#include <iostream>
-#include <string>
 #include <vector>
+#include "Character.h"
+#include <string>
 #include "C:\Users\Brens\source\repos\Rogue Dungeon\Weapons.h"
 
 using namespace std;
@@ -18,12 +18,13 @@ enum STATS {
 };
 
 class Char {
+public:
 	Char();
 	Char(string name, int max_health, int str, int intel, int spd, int m_def, int p_def, int per);
 	~Char() {};
 	bool getHidden() { return this->isHidden; }
 	bool getDead() { return this->isDead; }
-	int getStat(int stat) { return this->unitStats[stat]; }
+	int getStat(int stat) { return this->charStats[stat]; }
 	string getName() { return this->name; }
 	int getAttackSpeed() { return this->attackSpeed; }
 	int getAccuracy() { return this->accuracy; }
@@ -38,7 +39,7 @@ class Char {
 	void setLevel(int lvl); // Set the unit's level
 	void calcAttackSpeed(Weapon* weapon); // Calculate the unit's attack speed
 	void calcAccuracy(Weapon* weapon); // Calculate the unit's accuracy
-	void calcAvoid(); // Calculate the unit's avoid
+	void calcDodge(); // Calculate the unit's avoid
 	void calcCritRate(Weapon* weapon); // Calculate the unit's critical hit rate
 	void addWeapon(Weapon* weapon); // Add a weapon to the unit's inventory
 	void setExperience(int value); // Set the experience of the unit
@@ -46,7 +47,7 @@ class Char {
 protected:
 	bool isHidden = false;
 	bool isDead = false;
-	_int8 unitStats[8];
+	_int8 charStats[8];
 	string name;
 	int attackSpeed; // Unit's attack speed
 	int accuracy; // Unit's accuracy of attacking

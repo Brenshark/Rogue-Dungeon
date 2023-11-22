@@ -33,24 +33,24 @@ void Char::setLevel(int lvl) {
 }
 
 void Char::calcAttackSpeed(Weapon* weapon){
-	int weaponAffect = weapon->getProperty(WGT) - getStat(STR);
+	int weaponAffect = weapon->getWStats(WGT) - getStats(STR);
 	if (weaponAffect < 0)
 	{
 		weaponAffect = 0;
 	}
-	attackSpeed = getStat(SPD) - weaponAffect;
+	attackSpeed = getStats(SPD) - weaponAffect;
 }
 
 void Char::calcAccuracy(Weapon* weapon){
-	accuracy = weapon->getProperty(ACC) + 2 * getStat(PER);
+	accuracy = weapon->getWStats(ACC) + 2 * getStats(PER);
 }
 
-void Char::calcAvoid(){
-	avoid = 2 * attackSpeed + getStat(PER);
+void Char::calcDodge(){
+	dodge = 2 * attackSpeed + getStats(PER);
 }
 
 void Char::calcCritRate(Weapon* weapon){
-	critRate = weapon->getProperty(CRT) + .5 * getStat(PER);
+	critRate = weapon->getWStats(CRT) + .5 * getStats(PER);
 }
 
 void Char::addWeapon(Weapon* weapon){

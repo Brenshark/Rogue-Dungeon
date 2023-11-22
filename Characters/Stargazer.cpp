@@ -2,14 +2,14 @@
 
 Stargazer::Stargazer() {
 	setClassName("Stargazer");
-	useWeapon.push_back(SpaceInterference);
+	useWeapon.push_back(SPACEINTERFERENCE);
 }
 
 Stargazer::Stargazer(string name, int max_health, int str, int intel, int spd, int m_def, int p_def, int per) {
 	setClassName("Stargazer");
-	useWeapon.push_back(SpaceInterference);
+	useWeapon.push_back(SPACEINTERFERENCE);
 	setName(name);
-	setStat(MAX_HP, max_health);
+	setStat(MAX_HEALTH, max_health);
 	setStat(STR, str);
 	setStat(INT, intel);
 	setStat(SPD, spd);

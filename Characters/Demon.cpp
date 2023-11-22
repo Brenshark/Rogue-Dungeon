@@ -2,14 +2,14 @@
 
 Demon::Demon() {
 	setClassName("Demon");
-	useWeapon.push_back(Possess);
+	useWeapon.push_back(POSSESS);
 }
 
 Demon::Demon(string name, int max_health, int str, int intel, int spd, int m_def, int p_def, int per) {
 	setClassName("Demon");
-	useWeapon.push_back(Possess);
+	useWeapon.push_back(POSSESS);
 	setName(name);
-	setStat(MAX_HP, max_health);
+	setStat(MAX_HEALTH, max_health);
 	setStat(STR, str);
 	setStat(INT, intel);
 	setStat(SPD, spd);

@@ -2,14 +2,14 @@
 
 Blacksmith::Blacksmith() {
 	setClassName("Blacksmith");
-	useWeapon.push_back(Hammer);
+	useWeapon.push_back(HAMMER);
 }
 
 Blacksmith::Blacksmith(string name, int max_health, int str, int intel, int spd, int m_def, int p_def, int per) {
 	setClassName("Blacksmith");
-	useWeapon.push_back(Hammer);
+	useWeapon.push_back(HAMMER);
 	setName(name);
-	setStat(MAX_HP, max_health);
+	setStat(MAX_HEALTH, max_health);
 	setStat(STR, str);
 	setStat(INT, intel);
 	setStat(SPD, spd);
