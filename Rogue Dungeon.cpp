@@ -23,4 +23,7 @@ int main() {
 	else if (option == 4) {
 		cout << "does not function";
 	}
+	else if (option != 1, 2, 3, 4) {
+		cout << "enter a valid number";
+	}
 }

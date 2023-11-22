@@ -6,7 +6,7 @@
 
 using namespace std;
 
-enum STATS {
+enum CHARSTATS {
 	MAX_HEALTH,
 	HP,
 	STR,
@@ -21,10 +21,10 @@ class Char {
 public:
 	Char();
 	Char(string name, int max_health, int str, int intel, int spd, int m_def, int p_def, int per);
-	~Char() {};
+	~Char();
 	bool getHidden() { return this->isHidden; }
 	bool getDead() { return this->isDead; }
-	int getStat(int stat) { return this->charStats[stat]; }
+	int getStats(int stat) { return this->charStats[stat]; }
 	string getName() { return this->name; }
 	int getAttackSpeed() { return this->attackSpeed; }
 	int getAccuracy() { return this->accuracy; }

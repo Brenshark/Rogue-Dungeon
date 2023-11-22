@@ -1,5 +1,4 @@
 #include "CharacterSheet.h"
-#include "Character.cpp"
 
 using namespace std;
 
