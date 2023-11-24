@@ -47,7 +47,7 @@ public:
 	void setWStat(int stat, int value);
 private:
 	const char* nameWeapon; // Weapon's name
-	int stats[8] = {WGT , MT , ACC, CRT, DUR, WEAPON_TYPE , MAGIC_TYPE , RANGE }; // Weapon properties
+	int stats[8] = {WGT , MT , ACC, CRT, DUR, WEAPON_TYPE , MAGIC_TYPE , RANGE }; // Weapon stats
 	int weaponType; // Weapon Type
 	int magicType; // Magic Type
 };
