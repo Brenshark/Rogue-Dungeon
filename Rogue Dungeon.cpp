@@ -13,6 +13,7 @@ int main() {
 	cin >> option;
 	if (option == 1) {
 		cout << "does not function";
+		
 	}
 	else if (option == 2) {
 		cout << "does not function";

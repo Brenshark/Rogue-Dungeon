@@ -65,7 +65,7 @@ int Battle::calcLethalExperience(Char* unit1, Char* unit2){ // Calculates the ex
 void Battle::calcAttack(Char* unit1, Char* unit2, Weapon* weapon1, Weapon* weapon2){ // Determines the attacking power
 	if (weapon1->getWeaponType() == HOLYBOOK || SPACEINTERFERENCE){ // If the weapon type is TOME, MAG will be used to determine attack power
 		attack1 = unit1->getStats(INT) + (weapon1->getWStats(MT) + weaponTriangle1);
-	}b 
+	}
 	else{ // All other weapon types use STR to determine attack power
 		attack1 = unit1->getStats(STR) + (weapon1->getWStats(MT) + weaponTriangle1);
 	}
@@ -159,7 +159,6 @@ void Battle::combatReport(Char* unit1, Char* unit2, Weapon* weapon1, Weapon* wea
 	calcWeaponTriangle(weapon1, weapon2); // Determines weapon triangle advantage
 	calcBattleAccuracy(unit1, unit2); // Determines battle accuracy
 	calcBattleCrit(unit1, unit2); // Determines battle crit rate
-	calcEffectiveCoeff(unit1, unit2, weapon1, weapon2); // Determines effective coefficients
 	calcAttack(unit1, unit2, weapon1, weapon2); // Determines attack of units
 	calcDamage(unit1, unit2, weapon1, weapon2); // Determines damage of units
 	if (!unitRange[0]){
