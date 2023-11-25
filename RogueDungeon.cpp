@@ -1,4 +1,4 @@
-﻿#include "Rogue Dungeon.h"
+﻿#include "RogueDungeon.h"
 #include <iostream>
 #include <stdlib.h>
 #include <iostream>
@@ -17,6 +17,7 @@
 #include "Characters/Paladin.h"
 #include "Characters/Stargazer.h"
 #include "Characters/Rogue.h"
+#include "OpenGL/glut.h"
 using namespace std;
 
 int main(){
@@ -24,6 +25,7 @@ int main(){
 	int option;
 	cin >> option;
 	if (option == 1) {
+		
 		ChapterSetUp();
 		while (playerUnitNum > 0 && enemyUnitNum > 0)
 		{
@@ -40,7 +42,7 @@ int main(){
 		}
 	}
 		else if(option == 2) {
-		fclose;
+		return 0;
 	}
 	
 	}

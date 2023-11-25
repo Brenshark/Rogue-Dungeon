@@ -19,3 +19,8 @@ void CharacterSheet::setClassName(string name) {
 	className = name;
 }
 
+void LevelUp(int exp, int max_exp, int level) {
+	if (exp = max_exp) {
+		level++;
+	}
+}

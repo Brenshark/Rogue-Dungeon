@@ -21,40 +21,40 @@ bool enemyPhase = false; // Determnies whether or not it is enemy phase
 Battle* battle = new Battle; // Create Battle object
 // Create units of different classes 
 //max health, strength, intellegence, speed, magic defence, physical defense, perception
-CharacterSheet* Arbalist = new Arbalist("Arbalist", 16, 7, 0, 4, 6, 5, 3);
-CharacterSheet* Archer = new Archer("Archer", 13, 4, 0, 7, 6, 4, 3);
-CharacterSheet* Blacksmith = new Blacksmith("Blacksmith", 20, 9, 0, 4, 8, 8, 4);
-CharacterSheet* Demon = new Demon("Demon", 25, 10, 5, 7, 5, 5, 1);
-CharacterSheet* Knight = new Knight("Knight", 25, 8, 0, 5, 8, 10, 4);
-CharacterSheet* Paladin = new Paladin("Paladin", 20, 9, 5, 6, 12, 9, 3);
-CharacterSheet* Rogue = new Rogue("Rogue", 15, 4, 0, 10, 5, 5, 3, 8);
-CharacterSheet* Stargazer = new Stargazer("Stargazer", 17, 5, 9, 7, 9, 7, 4);
-CharacterSheet* Priest = new Priest("Priest", 17, 3, 12, 7, 9, 7, 4);
+CharacterSheet* CrossbowMan = new Arbalist("CrossbowMan", 16, 7, 0, 4, 6, 5, 3);
+CharacterSheet* BowMan = new Archer("BowMan", 17, 4, 0, 5, 6, 4, 3);
+CharacterSheet* Smithy = new Blacksmith("Smithy", 20, 9, 0, 4, 8, 8, 4);
+CharacterSheet* Daem = new Demon("Daem", 25, 10, 5, 7, 5, 5, 1);
+CharacterSheet* Night = new Knight("Night", 25, 8, 0, 5, 8, 10, 4);
+CharacterSheet* Aladin = new Paladin("Aladin", 20, 9, 5, 6, 12, 9, 3);
+CharacterSheet* Rouge = new Rogue("Rouge", 15, 4, 0, 10, 5, 5, 8);
+CharacterSheet* SpaceWalker = new Stargazer("SpaceWalker", 17, 5, 9, 7, 9, 7, 4);
+CharacterSheet* Holy = new Priest("Holy", 17, 3, 12, 7, 9, 7, 4);
 // Create weapons
 //Weight, mt, accuracy, critical, durability, weapon type, magic type, range
-Weapon* Sword_and_Shield = new Weapon("Sword and Shield", 1, 5, 5, 90, 0, 46, 0, 1);
-Weapon* Holy_Book = new Weapon("Holy Book", 1, 10, 8, 75, 0, 45, 1, 3);
-Weapon* Crossbow = new Weapon("Crossbow", 1, 8, 7, 80, 0, 45, 2, 3);
-Weapon* Bow = new Weapon("Bow", 2, 5, 6, 85, 0, 45, 3, 3);
-Weapon* Dagger = new Weapon("Dagger", 2, 4, 5, 90, 0, 40, 4, 0);
-Weapon* Great_Hammer = new Weapon("Great Hammer", 2, 4, 5, 90, 0, 40, 4, 0);
-Weapon* Hammer = new Weapon("Hammer", 2, 4, 5, 90, 0, 40, 4, 0);
-Weapon* Possess = new Weapon("Possession", 2, 4, 5, 90, 0, 40, 4, 0);
-vector<CharacterSheet*> playerUnits = { Arbalist, Knight, Rogue, Priest }; // Stores the units on the player team
-vector<CharacterSheet*> enemyUnits = { Paladin, Blacksmith, Archer, Demon }; // Stores the units on the enemy team
+Weapon* Sword_and_Shield = new Weapon("Sword and Shield", 10, 5, 90, 0, 0,1, 1,2);
+Weapon* Holy_Book = new Weapon("Holy Book", 5, 8, 75, 0, 1, 3, 3,4);
+Weapon* Crossbow = new Weapon("Crossbow", 8, 7, 80, 0, 45, 2, 3,5);
+Weapon* Bow = new Weapon("Bow", 5, 6, 85, 0, 45, 3, 3, 4);
+Weapon* Dagger = new Weapon("Dagger", 4, 5, 90, 0, 40, 4, 0,1);
+Weapon* Great_Hammer = new Weapon("Great Hammer",4, 5, 90, 0, 40, 4, 0,3);
+Weapon* Hammer = new Weapon("Hammer",4, 5, 90, 0, 40, 4, 0, 2);
+Weapon* Possess = new Weapon("Possession", 4, 5, 90, 0, 40, 4, 0, 4);
+vector<CharacterSheet*> playerUnits = { CrossbowMan, Night, Rouge, Holy }; // Stores the units on the player team
+vector<CharacterSheet*> enemyUnits = { Aladin, Smithy, BowMan, Daem }; // Stores the units on the enemy team
 vector<CharacterSheet*> inRangeUnits; // Stores the units in range of a specific unit
 int playerUnitNum = playerUnits.size(); // Number of player units alive
 int enemyUnitNum = enemyUnits.size(); // Number of enemy units alive
 
 	void ChapterSetUp() { // Sets up the units' initial position and gives each unit a weapon
-		Arbalist->addWeapon(Crossbow);
-		Knight->addWeapon(Sword_and_Shield);
-		Rogue->addWeapon(Dagger);
-		Priest->addWeapon(Holy_Book);
-		Paladin->addWeapon(Great_Hammer);
-		Blacksmith->addWeapon(Hammer);
-		Archer->addWeapon(Bow);
-		Demon->addWeapon(Possess);
+		CrossbowMan->addWeapon(Crossbow);
+		Night->addWeapon(Sword_and_Shield);
+		Rouge->addWeapon(Dagger);
+		Holy->addWeapon(Holy_Book);
+		Aladin->addWeapon(Great_Hammer);
+		Smithy->addWeapon(Hammer);
+		BowMan->addWeapon(Bow);
+		Daem->addWeapon(Possess);
 	}
 
 	void switchPhase() { // Switches between player phase and enemy phase
@@ -69,7 +69,7 @@ int enemyUnitNum = enemyUnits.size(); // Number of enemy units alive
 	}
 
 	void battleMenu(int& select) { // Outputs the menu of possible unit actions
-		std::cout << "1) Move" << endl << "2) Attack" << endl << "3) View Stats" << endl << "4) Wait" << endl;
+		std::cout << "2) Attack" << endl << "3) View Stats" << endl << "4) Wait" << endl;
 		cin >> select;
 	}
 
@@ -98,7 +98,7 @@ int enemyUnitNum = enemyUnits.size(); // Number of enemy units alive
 				battle->setCritCoeff(3); // Sets the critical multiplier to 3
 				battle->calcDamage(unit1, unit2, weapon1, weapon2);
 			}
-			unit1->setStat(HP, unit1->getStats(HP) - battle->getDamage(2));
+			unit1->setStat(abs(HP), unit1->getStats(HP) - battle->getDamage(2));
 			std::cout << unit2->getName() << " hit " << unit1->getName() << " for " << battle->getDamage(2) << " damage.\n";
 			battle->setCritCoeff(1);
 		}
@@ -133,55 +133,33 @@ int enemyUnitNum = enemyUnits.size(); // Number of enemy units alive
 			unit1Attack(unit1, unit2, weapon1, weapon2, hit, crit);
 			unit2Attack(unit1, unit2, weapon1, weapon2, hit, crit);
 		}
-		if (unitNum == playerUnitNum){ // Checks to see if the player is attacking
+		if (unitNum == playerUnitNum) { // Checks to see if the player is attacking
 			if (unit1->getStats(HP) <= 0) // Checks to see if the attacking unit has less than 0 HP
 			{
 				unit1->setDead(true); // Marks unit1 as dead
 				playerUnitNum--; // Decreases the number of alive player units
-				unit2->setExperience(unit2->getExperience() + battle->calcLethalExperience(unit2, unit1)); // Adds experience for killing a unit
 			}
-			if (unit2->getStats(HP) <= 0){ // Checks to see if the defending unit has less than 0 HP
+			if (unit2->getStats(HP) <= 0) { // Checks to see if the defending unit has less than 0 HP
 				unit2->setDead(true); // Marks unit2 as dead
 				enemyUnitNum--; // Decreases the number of alive player units
-				unit1->setExperience(unit1->getExperience() + battle->calcLethalExperience(unit1, unit2)); // Adds experience for killing a unit
-			}
-			else{
-				unit1->setExperience(unit1->getExperience() + battle->calcNonlethalExperience(unit1, unit2)); // Adds experience for damaging a unit
-				unit2->setExperience(unit2->getExperience() + battle->calcNonlethalExperience(unit2, unit1)); // Adds experience for damaging a unit
 			}
 		}
 		else if (unitNum == enemyUnitNum){ // Checks to see if the enemy is attacking
 			if (unit1->getStats(HP) <= 0){
 				unit1->setDead(true);
 				enemyUnitNum--;
-				unit2->setExperience(unit2->getExperience() + battle->calcLethalExperience(unit2, unit1));
 			}
 			if (unit2->getStats(HP) <= 0) {
 				unit2->setDead(true);
 				playerUnitNum--;
-				unit1->setExperience(unit1->getExperience() + battle->calcLethalExperience(unit1, unit2));
 			}
-			else {
-				unit1->setExperience(unit1->getExperience() + battle->calcNonlethalExperience(unit1, unit2));
-				unit2->setExperience(unit2->getExperience() + battle->calcNonlethalExperience(unit2, unit1));
-			}
-		}
-		if (unit1->getExperience() >= 100) { // Checks to see if unit1 has reached the necessary 100 exp in order to level up{
-			unit1->LevelUp(); // Unit1 levels up
-			unit1->setExperience(unit1->getExperience() - 100); // Resets unit1's experience 
-			std::cout << unit1->getName() << " leveled up to level " << unit1->getLevel() << endl;
-		}
-		if (unit2->getExperience() >= 100) { // Checks to see if unit2 has reached the necessary 100 exp in order to level up
-			unit2->LevelUp(); // Unit2 levels up
-			unit2->setExperience(unit1->getExperience() - 100); // Resets unit2's experience
-			std::cout << unit2->getName() << " leveled up to level " << unit2->getLevel() << endl;
 		}
 	}
 
 	void viewStats(Char * unit, Weapon * weapon) { // Output the unit's stats and their weapon's stats
 		std::cout << endl;
 		std::cout << unit->getName() << endl;
-		std::cout << "HP: " << unit->getStats(HP) << "/" << unit->getStats(MAX_HEALTH) << endl;
+		std::cout << "HP: " << unit->getStats(abs(HP)) << "/" << unit->getStats(abs(MAX_HEALTH)) << endl;
 		std::cout << "Strength: " << unit->getStats(STR) << endl;
 		std::cout << "Magic: " << unit->getStats(INT) << endl;
 		std::cout << "Speed: " << unit->getStats(SPD) << endl;
@@ -208,10 +186,55 @@ int enemyUnitNum = enemyUnits.size(); // Number of enemy units alive
 			else {
 				std::cout << "Enemy Phase\n";
 			}
-			for (int i = 0; i < units.size(); i++) { // Cycles through each of the units in the units vector
-				if (!units[i]->getDead()) { // Checks to see if the unit at units[i] is dead
-					switchPhase();
+			for (int i = 0; i < units.size(); i++) // Cycles through each of the units in the units vector
+			{
+				if (!units[i]->getDead()) // Checks to see if the unit at units[i] is dead
+				{
+					menuSelect = 0;
+					while (!(menuSelect == 2 || menuSelect == 4)) // Checks to see that the unit hasn't attacked or waited
+					{
+						std::cout << endl << units[i]->getName() << endl;
+						battleMenu(menuSelect);
+						switch (menuSelect) // Based on the user's input, the switch will cause four different actions to execute
+						{
+						case 2:
+							if (target = enemyUnits[i]) // Checks to see that the target is not null
+							{
+								battle->combatReport(units[i], target, units[i]->getWeapon(0), target->getWeapon(0)); // Output a preview of the battle
+								cin >> confirm;
+								while (!(confirm == 'A' || confirm == 'B')) // Checks to see if the confirmation is valid
+								{
+									std::cout << "Please confirm with A or back out with B.\n";
+									cin >> confirm;
+								}
+								if (confirm == 'B') // Checks to see if the user input B
+								{
+									menuSelect = 5; // Allows the unit to pick a different action
+									inRangeUnits.clear(); // Clears the units that are in attacking range
+									break;
+								}
+								unitAttack(units[i], target, units[i]->getWeapon(0), target->getWeapon(0));
+							}
+							else
+							{
+								std::cout << "There are no enemies in range.\n";
+								menuSelect = 5; // Allows the unit to pick a different action
+							}
+							inRangeUnits.clear(); // Clears the units that are in attacking range
+							break;
+						case 3:
+							viewStats(units[i], units[i]->getWeapon(0));
+							break;
+						case 4:
+							break;
+						}
+					}
+					if (playerUnitNum == 0 || enemyUnitNum == 0) // Checks to see if one side is completely defeated
+					{
+						break;
+					}
 				}
 			}
+			switchPhase();
 		}
 	}

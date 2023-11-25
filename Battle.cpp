@@ -2,7 +2,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <string>
-#include <stdlib.h>
+#include <cstdlib>
 #include <time.h>
 
 using namespace std;
@@ -50,16 +50,6 @@ int Battle::getDamage(int unitNum){ // Returns the damage based on the unitNum
 		batDam = damage2;
 	}
 	return batDam;
-}
-
-int Battle::calcNonlethalExperience(Char* unit1, Char* unit2){ // Calculates the experience from damaging an enemy
-	unsigned int expGain = (31 + unit2->getLevel() - unit1->getLevel()) / 3;
-	return expGain;
-}
-
-int Battle::calcLethalExperience(Char* unit1, Char* unit2){ // Calculates the experience from killing an enemy
-	unsigned int expGain = calcNonlethalExperience(unit1, unit2) + (unit2->getLevel() * 3) - (unit1->getLevel() * 3) + 20;
-	return expGain;
 }
 
 void Battle::calcAttack(Char* unit1, Char* unit2, Weapon* weapon1, Weapon* weapon2){ // Determines the attacking power
@@ -161,18 +151,9 @@ void Battle::combatReport(Char* unit1, Char* unit2, Weapon* weapon1, Weapon* wea
 	calcBattleCrit(unit1, unit2); // Determines battle crit rate
 	calcAttack(unit1, unit2, weapon1, weapon2); // Determines attack of units
 	calcDamage(unit1, unit2, weapon1, weapon2); // Determines damage of units
-	if (!unitRange[0]){
-		battleAccuracy1 = 0;
-		battleCrit1 = 0;
-		damage1 = 0;
-	}
-	if (!unitRange[1]){
-		battleAccuracy2 = 0;
-		battleCrit2 = 0;
-		damage2 = 0;
-	}
+
 	std::cout << unit1->getName() << " vs " << unit2->getName() << endl; // Output the battle stats for unit1 and unit2
-	std::cout << "HP: " << unit1->getStats(HP) << " vs " << unit2->getStats(HP) << endl;
+	std::cout << "HP: " << unit1->getStats(abs(HP)) << " vs " << unit2->getStats(abs(HP)) << endl;
 	if (unit1Double){
 		std::cout << "Mt: " << damage1 << " x 2 vs " << damage2 << endl;
 	}

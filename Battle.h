@@ -14,8 +14,6 @@ public:
 	int getBattleAccuracy(int unitNum);
 	int getBattleCrit(int unitNum);
 	int getDamage(int unitNum);
-	int calcNonlethalExperience(Char* unit1, Char* unit2); // Calculate the experience gained from damaging an enemy
-	int calcLethalExperience(Char* unit1, Char* unit2); // Calculate the experience gained from killing an enemy
 	void calcAttack(Char* unit1, Char* unit2, Weapon* weapon1, Weapon* weapon2); // Calculate the attack power of unit1 and unit2
 	void calcDamage(Char* unit1, Char* unit2, Weapon* weapon1, Weapon* weapon2); // Calculate the damage from unit1 and unit2
 	void calcBattleCrit(Char* unit1, Char* unit2); // Determine the critical hit chance of an attack

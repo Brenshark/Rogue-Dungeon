@@ -57,10 +57,6 @@ void Char::addWeapon(Weapon* weapon){
 	weaponInventory.push_back(weapon);
 }
 
-void Char::setExperience(int value){
-	exp = value;
-}
-
 void Char::setDead(bool dead){
 	isDead = dead;
 }
