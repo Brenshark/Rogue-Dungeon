@@ -196,27 +196,22 @@ int enemyUnitNum = enemyUnits.size(); // Number of enemy units alive
 		std::cout << endl;
 	}
 
-	void Phase(vector<CharacterSheet*> units, vector<CharacterSheet*> other_units, bool phase) // Controls the phase
-	{
+	void Phase(vector<CharacterSheet*> units, vector<CharacterSheet*> other_units, bool phase) { // Controls the phase
 		int menuSelect = 0;
 		CharacterSheet* target;
 		char confirm;
 		int unitNum;
-		if (phase)
-		{
-			if (phase == playerPhase)
-			{
+		if (phase) {
+			if (phase == playerPhase) {
 				std::cout << "Player Phase\n";
 			}
-			else
-			{
+			else {
 				std::cout << "Enemy Phase\n";
 			}
-			for (int i = 0; i < units.size(); i++) // Cycles through each of the units in the units vector
-			{
-				if (!units[i]->getDead()) // Checks to see if the unit at units[i] is dead
-				{
+			for (int i = 0; i < units.size(); i++) { // Cycles through each of the units in the units vector
+				if (!units[i]->getDead()) { // Checks to see if the unit at units[i] is dead
 					switchPhase();
 				}
 			}
 		}
+	}
