@@ -1,6 +1,6 @@
 #pragma once
 
-enum WEAPONS {
+enum WEAPONS { //Weapons for each class
 	SWORDSHIELD,
 	CROSSBOW,
 	BOW,
@@ -15,13 +15,13 @@ enum WEAPONS {
 	SPACEINTERFERENCE
 };
 
-enum MAGIC {
+enum MAGIC { //Type of magic
 	SPACE,
 	HOLY,
 	DARK
 };
 
-enum STATS {
+enum STATS { //Stats of each weapon
 	WGT,
 	MT,
 	ACC,
@@ -32,7 +32,7 @@ enum STATS {
 	RANGE
 };
 
-class Weapon {
+class Weapon { //class to create weapon and gather stats
 public:
 	Weapon();
 	Weapon(const char* name, int wgt, int mt, int acc, int crit, int dur, int range, int weapon, int magic);

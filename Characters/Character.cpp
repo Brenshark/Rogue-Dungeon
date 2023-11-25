@@ -2,10 +2,10 @@
 
 Char::Char() {}
 
-Char::Char(string name, int max_health, int str, int intel, int spd, int m_def, int p_def, int per) {
+Char::Char(string name, unsigned int max_health, int str, int intel, int spd, int m_def, int p_def, int per) {
 	setName(name);
-	setStat(MAX_HEALTH, max_health);
-	setStat(HP, max_health);
+	setStat(abs(MAX_HEALTH), max_health);
+	setStat(abs(HP), max_health);
 	setStat(STR, str);
 	setStat(INT, intel);
 	setStat(SPD, spd);

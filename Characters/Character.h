@@ -20,7 +20,7 @@ enum CHARSTATS {
 class Char {
 public:
 	Char();
-	Char(string name, int max_health, int str, int intel, int spd, int m_def, int p_def, int per);
+	Char(string name, unsigned int max_health, int str, int intel, int spd, int m_def, int p_def, int per);
 	~Char();
 	bool getHidden() { return this->isHidden; }
 	bool getDead() { return this->isDead; }
@@ -39,10 +39,9 @@ public:
 	void setLevel(int lvl); // Set the unit's level
 	void calcAttackSpeed(Weapon* weapon); // Calculate the unit's attack speed
 	void calcAccuracy(Weapon* weapon); // Calculate the unit's accuracy
-	void calcDodge(); // Calculate the unit's avoid
+	void calcDodge(); // Calculate the unit's dodge chance
 	void calcCritRate(Weapon* weapon); // Calculate the unit's critical hit rate
 	void addWeapon(Weapon* weapon); // Add a weapon to the unit's inventory
-	void setExperience(int value); // Set the experience of the unit
 	void setDead(bool dead); // Set whether or not the unit is dead
 protected:
 	bool isHidden = false;

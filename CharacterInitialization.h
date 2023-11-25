@@ -31,7 +31,7 @@ CharacterSheet* Rouge = new Rogue("Rouge", 15, 4, 0, 10, 5, 5, 8);
 CharacterSheet* SpaceWalker = new Stargazer("SpaceWalker", 17, 5, 9, 7, 9, 7, 4);
 CharacterSheet* Holy = new Priest("Holy", 17, 3, 12, 7, 9, 7, 4);
 // Create weapons
-//Weight, mt, accuracy, critical, durability, weapon type, magic type, range
+//Weight, might, accuracy, critical, durability, weapon type, magic type, range
 Weapon* Sword_and_Shield = new Weapon("Sword and Shield", 10, 5, 90, 0, 0,1, 1,2);
 Weapon* Holy_Book = new Weapon("Holy Book", 5, 8, 75, 0, 1, 3, 3,4);
 Weapon* Crossbow = new Weapon("Crossbow", 8, 7, 80, 0, 45, 2, 3,5);
@@ -40,13 +40,13 @@ Weapon* Dagger = new Weapon("Dagger", 4, 5, 90, 0, 40, 4, 0,1);
 Weapon* Great_Hammer = new Weapon("Great Hammer",4, 5, 90, 0, 40, 4, 0,3);
 Weapon* Hammer = new Weapon("Hammer",4, 5, 90, 0, 40, 4, 0, 2);
 Weapon* Possess = new Weapon("Possession", 4, 5, 90, 0, 40, 4, 0, 4);
-vector<CharacterSheet*> playerUnits = { CrossbowMan, Night, Rouge, Holy }; // Stores the units on the player team
-vector<CharacterSheet*> enemyUnits = { Aladin, Smithy, BowMan, Daem }; // Stores the units on the enemy team
+vector<CharacterSheet*> playerUnits = { CrossbowMan, Night, Rouge, Holy }; //Set User Characters
+vector<CharacterSheet*> enemyUnits = { Aladin, Smithy, BowMan, Daem }; //Set Enemy Characters
 vector<CharacterSheet*> inRangeUnits; // Stores the units in range of a specific unit
 int playerUnitNum = playerUnits.size(); // Number of player units alive
 int enemyUnitNum = enemyUnits.size(); // Number of enemy units alive
 
-	void ChapterSetUp() { // Sets up the units' initial position and gives each unit a weapon
+	void ChapterSetUp() { // Gives each unit a weapon
 		CrossbowMan->addWeapon(Crossbow);
 		Night->addWeapon(Sword_and_Shield);
 		Rouge->addWeapon(Dagger);
@@ -68,8 +68,8 @@ int enemyUnitNum = enemyUnits.size(); // Number of enemy units alive
 		}
 	}
 
-	void battleMenu(int& select) { // Outputs the menu of possible unit actions
-		std::cout << "2) Attack" << endl << "3) View Stats" << endl << "4) Wait" << endl;
+	void battleMenu(int& select) { // Outputs the possible unit actions
+		std::cout << "1) Repeat Dialogue" << endl << "2) Attack" << endl << "3) View Stats" << endl << "4) Wait" << endl;
 		cin >> select;
 	}
 
@@ -124,7 +124,7 @@ int enemyUnitNum = enemyUnits.size(); // Number of enemy units alive
 			unit2Attack(unit1, unit2, weapon1, weapon2, hit, crit);
 			unit1Attack(unit1, unit2, weapon1, weapon2, hit, crit);
 		}
-		else if (battle->getUnit2Double()) { // Checks to see if unit2 gets to attack twice
+		else if (battle->getUnit2Double()) { //Checks to see if unit2 gets to attack twice
 			unit2Attack(unit1, unit2, weapon1, weapon2, hit, crit);
 			unit1Attack(unit1, unit2, weapon1, weapon2, hit, crit);
 			unit2Attack(unit1, unit2, weapon1, weapon2, hit, crit);
@@ -133,18 +133,18 @@ int enemyUnitNum = enemyUnits.size(); // Number of enemy units alive
 			unit1Attack(unit1, unit2, weapon1, weapon2, hit, crit);
 			unit2Attack(unit1, unit2, weapon1, weapon2, hit, crit);
 		}
-		if (unitNum == playerUnitNum) { // Checks to see if the player is attacking
-			if (unit1->getStats(HP) <= 0) // Checks to see if the attacking unit has less than 0 HP
+		if (unitNum == playerUnitNum) { //Checks to see if the player is attacking
+			if (unit1->getStats(HP) <= 0) //Checks to see if the attacking unit has less than 0 HP
 			{
-				unit1->setDead(true); // Marks unit1 as dead
-				playerUnitNum--; // Decreases the number of alive player units
+				unit1->setDead(true); //Marks unit1 as dead
+				playerUnitNum--; //Decreases the number of alive player units
 			}
-			if (unit2->getStats(HP) <= 0) { // Checks to see if the defending unit has less than 0 HP
-				unit2->setDead(true); // Marks unit2 as dead
-				enemyUnitNum--; // Decreases the number of alive player units
+			if (unit2->getStats(HP) <= 0) { //Checks to see if the defending unit has less than 0 HP
+				unit2->setDead(true); //Marks unit2 as dead
+				enemyUnitNum--; //Decreases the number of alive player units
 			}
 		}
-		else if (unitNum == enemyUnitNum){ // Checks to see if the enemy is attacking
+		else if (unitNum == enemyUnitNum){ //Checks to see if the enemy is attacking
 			if (unit1->getStats(HP) <= 0){
 				unit1->setDead(true);
 				enemyUnitNum--;
@@ -186,37 +186,30 @@ int enemyUnitNum = enemyUnits.size(); // Number of enemy units alive
 			else {
 				std::cout << "Enemy Phase\n";
 			}
-			for (int i = 0; i < units.size(); i++) // Cycles through each of the units in the units vector
-			{
-				if (!units[i]->getDead()) // Checks to see if the unit at units[i] is dead
-				{
+			for (int i = 0; i < units.size(); i++){//Cycles through each of the units in the units vector
+
+				if (!units[i]->getDead()){ //Checks to see if the unit at units[i] is dead
 					menuSelect = 0;
-					while (!(menuSelect == 2 || menuSelect == 4)) // Checks to see that the unit hasn't attacked or waited
-					{
+					while (!(menuSelect == 2 || menuSelect == 4)){ // Checks to see that the unit hasn't attacked or waited
 						std::cout << endl << units[i]->getName() << endl;
 						battleMenu(menuSelect);
-						switch (menuSelect) // Based on the user's input, the switch will cause four different actions to execute
-						{
+						switch (menuSelect){
 						case 2:
-							if (target = enemyUnits[i]) // Checks to see that the target is not null
-							{
+							if (target = enemyUnits[i]){ // Checks to see that the target is not null
 								battle->combatReport(units[i], target, units[i]->getWeapon(0), target->getWeapon(0)); // Output a preview of the battle
 								cin >> confirm;
-								while (!(confirm == 'A' || confirm == 'B')) // Checks to see if the confirmation is valid
-								{
+								while (!(confirm == 'A' || confirm == 'B')){ // Checks to see if the confirmation is valid
 									std::cout << "Please confirm with A or back out with B.\n";
 									cin >> confirm;
 								}
-								if (confirm == 'B') // Checks to see if the user input B
-								{
+								if (confirm == 'B'){
 									menuSelect = 5; // Allows the unit to pick a different action
 									inRangeUnits.clear(); // Clears the units that are in attacking range
 									break;
 								}
 								unitAttack(units[i], target, units[i]->getWeapon(0), target->getWeapon(0));
 							}
-							else
-							{
+							else{
 								std::cout << "There are no enemies in range.\n";
 								menuSelect = 5; // Allows the unit to pick a different action
 							}
@@ -229,12 +222,12 @@ int enemyUnitNum = enemyUnits.size(); // Number of enemy units alive
 							break;
 						}
 					}
-					if (playerUnitNum == 0 || enemyUnitNum == 0) // Checks to see if one side is completely defeated
-					{
+					if (playerUnitNum == 0 || enemyUnitNum == 0){ // Checks to see if one side is completely defeated
 						break;
 					}
 				}
 			}
 			switchPhase();
 		}
+
 	}
