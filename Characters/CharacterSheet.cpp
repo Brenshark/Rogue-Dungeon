@@ -7,7 +7,7 @@ CharacterSheet::CharacterSheet(string name, unsigned int max_health, int str, in
 	setName(name); //name
 	setStat(abs(MAX_HEALTH),max_health); //max health
 	setStat(STR,str); //strength
-	setStat(INT,intel); //intellegence
+	setStat(INT,intel); //intelligence
 	setStat(SPD,spd); //speed
 	setStat(MAG_DEF,m_def); //magic defense
 	setStat(PHY_DEF,p_def); //physical defense
