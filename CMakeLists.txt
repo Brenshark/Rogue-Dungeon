@@ -14,7 +14,7 @@ project ("RogueDungeon")
 #include_directories(${OpenCV_INCLUDE_DIRS})
 #find_package(OpenCV REQUIRED)
  
-add_executable (CMakeTarget "RogueDungeon.cpp" "RogueDungeon.h" "Characters/CharacterSheet.h"  "Characters/Paladin.h" "Characters/Arbalist.h" "Characters/Herbalist.h" "Weapons.h" "Characters/Archer" "Characters/Blacksmith" "Characters/Demon" "Characters/Hound" "Characters/Knight" "Characters/Stargazer" "Characters/CharacterSheet.cpp"  "Characters/Arbalist.cpp" "Characters/Archer.cpp" "Characters/Blacksmith.cpp" "Characters/Demon.cpp" "Characters/Herbalist.cpp" "Characters/Hound.cpp" "Characters/Knight.cpp" "Characters/Paladin.cpp" "Characters/Priest.cpp" "Characters/Stargazer.cpp"  "Characters/Character.h" "Characters/Character.cpp" "Characters/Rogue.cpp" "Characters/Rogue.h" "Weapons.cpp" "Map.h" "Map.cpp" "Battle.cpp" "Battle.h"  "CharacterInitialization.h")
+add_executable (CMakeTarget "RogueDungeon.cpp" "RogueDungeon.h" "CharacterSheet.h"  "Paladin.h" "Arbalist.h" "Weapons.h" "Archer.h" "Blacksmith.h" "Demon.h" "Hound.h" "Knight.h" "Stargazer.h" "CharacterSheet.cpp"  "Arbalist.cpp" "Archer.cpp" "Blacksmith.cpp" "Demon.cpp" "Hound.cpp" "Knight.cpp" "Paladin.cpp" "Priest.cpp" "Stargazer.cpp"  "Character.h" "Character.cpp" "Rogue.cpp" "Rogue.h" "Weapons.cpp" "Map.h" "Map.cpp" "Battle.cpp" "Battle.h"  "CharacterInitialization.h")
 
 #target_link_libraries("C:\Users\Brens\source\repos\Rogue Dungeon" ${OPENCV_LIBS})
 if (CMAKE_VERSION VERSION_GREATER 3.12)

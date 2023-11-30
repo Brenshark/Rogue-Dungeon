@@ -4,15 +4,15 @@
 #include <stdlib.h>
 #include "Battle.h"
 #include "Weapons.h"
-#include "Characters/Archer.h"
-#include "Characters/Arbalist.h"
-#include "Characters/Blacksmith.h"
-#include "Characters/Knight.h"
-#include "Characters/Priest.h"
-#include "Characters/Demon.h"
-#include "Characters/Paladin.h"
-#include "Characters/Stargazer.h"
-#include "Characters/Rogue.h"
+#include "Archer.h"
+#include "Arbalist.h"
+#include "Blacksmith.h"
+#include "Knight.h"
+#include "Priest.h"
+#include "Demon.h"
+#include "Paladin.h"
+#include "Stargazer.h"
+#include "Rogue.h"
 
 using namespace std;
 
@@ -190,6 +190,10 @@ int enemyUnitNum = enemyUnits.size(); // Number of enemy units alive
 
 				if (!units[i]->getDead()){ //Checks to see if the unit at units[i] is dead
 					menuSelect = 0;
+					if (menuSelect != 1 || 2 || 3 || 4) {
+						exit;
+						cout << "Enter a valid number." << endl;
+					}
 					while (!(menuSelect == 2 || menuSelect == 4)){ // Checks to see that the unit hasn't attacked or waited
 						std::cout << endl << units[i]->getName() << endl;
 						battleMenu(menuSelect);
@@ -208,10 +212,6 @@ int enemyUnitNum = enemyUnits.size(); // Number of enemy units alive
 									break;
 								}
 								unitAttack(units[i], target, units[i]->getWeapon(0), target->getWeapon(0));
-							}
-							else{
-								std::cout << "There are no enemies in range.\n";
-								menuSelect = 5; // Allows the unit to pick a different action
 							}
 							inRangeUnits.clear(); // Clears the units that are in attacking range
 							break;

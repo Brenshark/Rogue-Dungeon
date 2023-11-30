@@ -2,21 +2,21 @@
 #include <iostream>
 #include <stdlib.h>
 #include <iostream>
-#include "Characters/Character.h"
+#include "Character.h"
 #include "Weapons.h"
-#include "Characters/CharacterSheet.h"
+#include "CharacterSheet.h"
 #include "Battle.h"
 #include "Map.h"
 #include "CharacterInitialization.h"
-#include "Characters/Archer.h"
-#include "Characters/Arbalist.h"
-#include "Characters/Blacksmith.h"
-#include "Characters/Knight.h"
-#include "Characters/Priest.h"
-#include "Characters/Demon.h"
-#include "Characters/Paladin.h"
-#include "Characters/Stargazer.h"
-#include "Characters/Rogue.h"
+#include "Archer.h"
+#include "Arbalist.h"
+#include "Blacksmith.h"
+#include "Knight.h"
+#include "Priest.h"
+#include "Demon.h"
+#include "Paladin.h"
+#include "Stargazer.h"
+#include "Rogue.h"
 
 using namespace std;
 void outcome() {

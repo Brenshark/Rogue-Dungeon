@@ -2,7 +2,7 @@
 #include <vector>
 #include "Character.h"
 #include <string>
-#include "C:\Users\Brens\source\repos\Rogue Dungeon\Weapons.h"
+#include "Weapons.h"
 
 using namespace std;
 

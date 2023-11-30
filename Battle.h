@@ -1,6 +1,6 @@
 #pragma once
 #pragma once
-#include "C:\Users\Brens\source\repos\Rogue Dungeon\Characters\Character.h"
+#include "Character.h"
 #include "Weapons.h"
 
 class Battle
