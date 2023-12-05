@@ -83,12 +83,18 @@ int main(){ //Introduction to game
 						if (direction == "A") {
 							ChapterSetUp();
 							outcome();
-							cout << "A. Turn right" << endl;
+							cout << "A. Advance Forward" << endl;
 							cin >> direction;
 							if (direction == "A") {
 								ChapterSetUp();
 								outcome();
-								cout << "CONGRATULATIONS! YOU HAVE COMPLETED ALL THAT IS AVAILABLE!" << endl;
+								cout << "A. Turn right" << endl;
+								cin >> direction;
+								if (direction == "A") {
+									ChapterSetUp();
+									outcome();
+									cout << "CONGRATULATIONS! YOU HAVE COMPLETED ALL THAT IS AVAILABLE!" << endl;
+								}
 							}
 						}
 					}
