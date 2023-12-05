@@ -16,20 +16,12 @@ Char::Char(string name, unsigned int max_health, int str, int intel, int spd, in
 
 Char::~Char() {}
 
-void Char::setHidden(bool hidden) {
-	isHidden = hidden;
-}
-
 void Char::setStat(int stat, int value) {
 	charStats[stat] = value;
 }
 
 void Char::setName(string charName) {
 	name = charName;
-}
-
-void Char::setLevel(int lvl) {
-	level = lvl;
 }
 
 void Char::calcAttackSpeed(Weapon* weapon){
@@ -46,7 +38,7 @@ void Char::calcAccuracy(Weapon* weapon){
 }
 
 void Char::calcDodge(){
-	dodge = 2 * attackSpeed + getStats(PER);
+	dodge = 2 + getStats(PER);
 }
 
 void Char::calcCritRate(Weapon* weapon){

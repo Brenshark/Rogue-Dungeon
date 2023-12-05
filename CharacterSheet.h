@@ -14,7 +14,6 @@ public:
 	~CharacterSheet();
 	string getClassName() { return className; };
 	void setClassName(string name);
-	void LevelUp();
 protected:
 	string className;
 	vector<int> useWeapon;

@@ -109,11 +109,11 @@ void Battle::combatReport(Char* unit1, Char* unit2, Weapon* weapon1, Weapon* wea
 	critCoeff = 1;
 	unit1->calcAttackSpeed(weapon1); // Calculates unit1's attack speed
 	unit1->calcAccuracy(weapon1); // Calcultates unit1's accuracy
-	unit1->calcDodge(); // Calculates unit1's avoid
+	unit1->calcDodge(); // Calculates unit1's dodge
 	unit1->calcCritRate(weapon1); // Calculates unit1's crit rate
 	unit2->calcAttackSpeed(weapon2); // Calculates unit2's attack speed
 	unit2->calcAccuracy(weapon2); // Calculates unit2's accuracy
-	unit2->calcDodge(); // Calculates unit2's avoid
+	unit2->calcDodge(); // Calculates unit2's dodge
 	unit2->calcCritRate(weapon2); // Calculates unit2's crit rate
 	canDouble(unit1, unit2); // Determines which unit can double attack
 	calcBattleAccuracy(unit1, unit2); // Determines battle accuracy

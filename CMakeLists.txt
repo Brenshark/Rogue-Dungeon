@@ -13,7 +13,7 @@ project ("RogueDungeon")
 # Add source to this project's executable.
 #include_directories(${OpenCV_INCLUDE_DIRS})
 #find_package(OpenCV REQUIRED)
- 
+
 add_executable (CMakeTarget "RogueDungeon.cpp" "RogueDungeon.h" "CharacterSheet.h"  "Paladin.h" "Arbalist.h" "Weapons.h" "Archer.h" "Blacksmith.h" "Demon.h" "Hound.h" "Knight.h" "Stargazer.h" "CharacterSheet.cpp"  "Arbalist.cpp" "Archer.cpp" "Blacksmith.cpp" "Demon.cpp" "Hound.cpp" "Knight.cpp" "Paladin.cpp" "Priest.cpp" "Stargazer.cpp"  "Character.h" "Character.cpp" "Rogue.cpp" "Rogue.h" "Weapons.cpp" "Map.h" "Map.cpp" "Battle.cpp" "Battle.h"  "CharacterInitialization.h")
 
 #target_link_libraries("C:\Users\Brens\source\repos\Rogue Dungeon" ${OPENCV_LIBS})

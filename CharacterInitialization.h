@@ -21,15 +21,15 @@ bool enemyPhase = false; // Determnies whether or not it is enemy phase
 Battle* battle = new Battle; // Create Battle object
 // Create units of different classes 
 //max health, strength, intellegence, speed, magic defence, physical defense, perception
-CharacterSheet* CrossbowMan = new Arbalist("CrossbowMan", 16, 7, 0, 4, 6, 5, 3);
-CharacterSheet* BowMan = new Archer("BowMan", 17, 4, 0, 5, 6, 4, 3);
-CharacterSheet* Smithy = new Blacksmith("Smithy", 20, 9, 0, 4, 8, 8, 4);
-CharacterSheet* Daem = new Demon("Daem", 25, 10, 5, 7, 5, 5, 1);
-CharacterSheet* Night = new Knight("Night", 25, 8, 0, 5, 8, 10, 4);
-CharacterSheet* Aladin = new Paladin("Aladin", 20, 9, 5, 6, 12, 9, 3);
+CharacterSheet* CrossbowMan = new Arbalist("Arbalist", 16, 7, 0, 4, 6, 5, 3);
+CharacterSheet* BowMan = new Archer("Archer", 17, 4, 0, 5, 6, 4, 3);
+CharacterSheet* Smithy = new Blacksmith("Blacksmith", 20, 9, 0, 4, 8, 8, 4);
+CharacterSheet* Daem = new Demon("Demon", 25, 10, 5, 7, 5, 5, 1);
+CharacterSheet* Night = new Knight("Knight", 25, 8, 0, 5, 8, 10, 4);
+CharacterSheet* Aladin = new Paladin("Paladin", 20, 9, 5, 6, 12, 9, 3);
 CharacterSheet* Rouge = new Rogue("Rouge", 15, 4, 0, 10, 5, 5, 8);
-CharacterSheet* SpaceWalker = new Stargazer("SpaceWalker", 17, 5, 9, 7, 9, 7, 4);
-CharacterSheet* Holy = new Priest("Holy", 17, 3, 12, 7, 9, 7, 4);
+CharacterSheet* SpaceWalker = new Stargazer("Stargazer", 17, 5, 9, 7, 9, 7, 4);
+CharacterSheet* Holy = new Priest("Priest", 17, 3, 12, 7, 9, 7, 4);
 // Create weapons
 //Weight, might, accuracy, critical, durability, weapon type, magic type, range
 Weapon* Sword_and_Shield = new Weapon("Sword and Shield", 10, 5, 90, 0, 0,1, 1,2);
@@ -81,7 +81,7 @@ int enemyUnitNum = enemyUnits.size(); // Number of enemy units alive
 				battle->setCritCoeff(3); // Sets the critical multiplier to 3
 				battle->calcDamage(unit1, unit2, weapon1, weapon2);
 			}
-			unit2->setStat(HP, unit2->getStats(HP) - battle->getDamage(1));
+			unit2->setStat(abs(HP), unit2->getStats(abs(HP)) - battle->getDamage(1));
 			std::cout << unit1->getName() << " hit " << unit2->getName() << " for " << battle->getDamage(1) << " damage.\n";
 			battle->setCritCoeff(1);
 		}
@@ -98,7 +98,7 @@ int enemyUnitNum = enemyUnits.size(); // Number of enemy units alive
 				battle->setCritCoeff(3); // Sets the critical multiplier to 3
 				battle->calcDamage(unit1, unit2, weapon1, weapon2);
 			}
-			unit1->setStat(abs(HP), unit1->getStats(HP) - battle->getDamage(2));
+			unit1->setStat(abs(MAX_HEALTH), unit1->getStats(HP) - battle->getDamage(2));
 			std::cout << unit2->getName() << " hit " << unit1->getName() << " for " << battle->getDamage(2) << " damage.\n";
 			battle->setCritCoeff(1);
 		}
@@ -161,7 +161,7 @@ int enemyUnitNum = enemyUnits.size(); // Number of enemy units alive
 		std::cout << unit->getName() << endl;
 		std::cout << "HP: " << unit->getStats(abs(HP)) << "/" << unit->getStats(abs(MAX_HEALTH)) << endl;
 		std::cout << "Strength: " << unit->getStats(STR) << endl;
-		std::cout << "Magic: " << unit->getStats(INT) << endl;
+		std::cout << "Intellect: " << unit->getStats(INT) << endl;
 		std::cout << "Speed: " << unit->getStats(SPD) << endl;
 		std::cout << "Physical Defense: " << unit->getStats(PHY_DEF) << endl;
 		std::cout << "Magic Defense: " << unit->getStats(MAG_DEF) << endl;
