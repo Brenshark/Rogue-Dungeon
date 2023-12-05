@@ -168,6 +168,7 @@ int enemyUnitNum = enemyUnits.size(); // Number of enemy units alive
 		std::cout << "Perception: " << unit->getStats(PER) << endl;
 		std::cout << weapon->getWeaponName() << endl;
 		std::cout << "Weight: " << weapon->getWStats(1) << endl;
+		std::cout << "Might: " << weapon->getWStats(2) << endl;
 		std::cout << "Hit: " << weapon->getWStats(3) << endl;
 		std::cout << "Crit: " << weapon->getWStats(4) << endl;
 		std::cout << endl;

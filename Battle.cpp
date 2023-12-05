@@ -123,15 +123,6 @@ void Battle::combatReport(Char* unit1, Char* unit2, Weapon* weapon1, Weapon* wea
 
 	std::cout << unit1->getName() << " vs " << unit2->getName() << endl; // Output the battle stats for unit1 and unit2
 	std::cout << "HP: " << unit1->getStats(HP) << " vs " << unit2->getStats(HP) << endl;
-	if (unit1Double){
-		std::cout << "Mt: " << damage1 << " x 2 vs " << damage2 << endl;
-	}
-	else if (unit2Double){
-		std::cout << "Mt: " << damage1 << " vs " << damage2 << " x 2" << endl;
-	}
-	else{
-		std::cout << "Mt: " << damage1 << " vs " << damage2 << endl;
-	}
 	std::cout << "Hit: " << battleAccuracy1 << " vs " << battleAccuracy2 << endl;
 	std::cout << "Crit: " << battleCrit1 << " vs " << battleCrit2 << endl;
 	std::cout << "A) Continue B) Back" << endl;

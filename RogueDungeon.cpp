@@ -101,17 +101,7 @@ int main(){ //Introduction to game
 				}
 			}
 		}
-
-		while (playerUnitNum > 0 && enemyUnitNum > 0){
-			Phase(playerUnits, enemyUnits, playerPhase); // Player Phase
-			Phase(enemyUnits, playerUnits, enemyPhase); // Enemy Phase
-		}
-		if (enemyUnitNum == 0){
-			cout << "Player wins!\n";
-		}
-		else if (playerUnitNum == 0){
-			cout << "Enemy wins!\n";
-		}
+		outcome();
 	}
 		else if(option == 2) {
 		return 0;
