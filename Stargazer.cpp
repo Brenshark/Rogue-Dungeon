@@ -10,6 +10,7 @@ Stargazer::Stargazer(string name, int max_health, int str, int intel, int spd, i
 	useWeapon.push_back(SPACEINTERFERENCE);
 	setName(name);
 	setStat(MAX_HEALTH, max_health);
+	setStat(HP, max_health);
 	setStat(STR, str);
 	setStat(INT, intel);
 	setStat(SPD, spd);

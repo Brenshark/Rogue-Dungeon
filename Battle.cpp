@@ -122,7 +122,7 @@ void Battle::combatReport(Char* unit1, Char* unit2, Weapon* weapon1, Weapon* wea
 	calcDamage(unit1, unit2, weapon1, weapon2); // Determines damage of units
 
 	std::cout << unit1->getName() << " vs " << unit2->getName() << endl; // Output the battle stats for unit1 and unit2
-	std::cout << "HP: " << unit1->getStats(abs(HP)) << " vs " << unit2->getStats(abs(HP)) << endl;
+	std::cout << "HP: " << unit1->getStats(HP) << " vs " << unit2->getStats(HP) << endl;
 	if (unit1Double){
 		std::cout << "Mt: " << damage1 << " x 2 vs " << damage2 << endl;
 	}

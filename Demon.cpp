@@ -9,7 +9,7 @@ Demon::Demon(string name, int max_health, int str, int intel, int spd, int m_def
 	setClassName("Demon");
 	useWeapon.push_back(POSSESS);
 	setName(name);
-	setStat(MAX_HEALTH, max_health);
+	setStat(MAX_HEALTH, max_health);	
 	setStat(STR, str);
 	setStat(INT, intel);
 	setStat(SPD, spd);

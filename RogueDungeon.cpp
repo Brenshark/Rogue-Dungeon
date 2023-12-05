@@ -26,11 +26,9 @@ void outcome() {
 	}
 	if (enemyUnitNum == 0){
 		cout << "Player wins!\n";
-		exit;
 	}
 	else if (playerUnitNum == 0){
 		cout << "Enemy wins!\n";
-		quick_exit;
 	}
 }
 int main(){ //Introduction to game
